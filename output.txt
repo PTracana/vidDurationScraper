@@ -7,7 +7,6 @@ Baizhu quest Lagenaria Lagenaria gameplay
 Chiori quest Cisoria Cisoria gameplay
 Clorinde quest Rapperia Rapperia gameplay
 Cyno quest Lupus Aureus Lupus Aureus gameplay
-Act II: Oathkeeper 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises quest 4.6 gameplay
 Dehya quest Mantichora Mantichora gameplay
 Diluc quest Noctua Noctua gameplay
 Emilie quest Pomum de Ambra Pomum de Ambra gameplay
@@ -26,12 +25,10 @@ Lyney quest Felis Fuscus Felis Fuscus gameplay
 Mavuika quest Sol Invictus Sol Invictus gameplay
 Mona quest Astrolabos Astrolabos gameplay
 Nahida quest Sapientia Oromasdis Sapientia Oromasdis gameplay
-Act II: Homecoming 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises quest 3.6 gameplay
 Navia quest Rosa Multiflora Rosa Multiflora gameplay
 Neuvillette quest Diluvies Diluvies gameplay
 Nilou quest Lotos Somno Lotos Somno gameplay
 Raiden Shogun quest Imperatrix Umbrosa Imperatrix Umbrosa gameplay
-Act II: Transient Dreams 40,  Imperatrix Umbrosa Chapter: Act I - Reflections of Mortality,  Chapter II: Act III - Omnipresence Over Mortals quest 2.5 gameplay
 Razor quest Lupus Minor Lupus Minor gameplay
 Sangonomiya Kokomi quest Dracaena Somnolenta Dracaena Somnolenta gameplay
 Sigewinne quest Nereides Nereides gameplay
@@ -46,7 +43,5 @@ Xingqiu quest Fabulae Textile Fabulae Textile gameplay
 Yae Miko quest Divina Vulpes Divina Vulpes gameplay
 Yelan quest Umbrabilis Orchis Umbrabilis Orchis gameplay
 Yoimiya quest Carassius Auratus Carassius Auratus gameplay
-Act II: Star-Pickers' Passage 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises,  Imperatrix Umbrosa Chapter: Act II - Transient Dreams,  The World of Aranara from Aranyaka: Part II - Dream Nursery quest 3.7 gameplay
 Yumemizuki Mizuki quest Tapirus Somniator Tapirus Somniator gameplay
 Zhongli quest Historia Antiqua Historia Antiqua gameplay
-Act II: No Mere Stone 40,  Historia Antiqua Chapter: Act I - Sal Flore,  Chapter I: Act IV - We Will Be Reunited quest 1.5 gameplay
