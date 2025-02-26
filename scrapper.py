@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 import time
 import csv
+import os
 from urllib.parse import quote_plus
 
 def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
@@ -113,7 +114,8 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
                         "title": title,
                         "length": duration,
                         "url": video_url,
-                        "relevance": relevance_score
+                        "relevance": relevance_score,
+                        "search_term": search_query  # Store the search term used
                     })
                 
                 # Throttle requests to avoid being blocked
@@ -151,7 +153,7 @@ def save_to_csv(results, filename="youtube_video_lengths.csv"):
         filename (str): Name of the CSV file to save results to
     """
     with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['title', 'length', 'url', 'relevance']
+        fieldnames = ['search_term', 'title', 'length', 'url', 'relevance']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -160,45 +162,131 @@ def save_to_csv(results, filename="youtube_video_lengths.csv"):
     
     print(f"Results saved to {filename}")
 
-def main():
-    search_query = input("Enter the search term to find in YouTube video titles: ")
+def read_search_terms_from_file(file_path):
+    """
+    Reads search terms from a file, one per line
     
-    # Make max_results configurable but with a reasonable default and a clear safety warning
+    Args:
+        file_path (str): Path to the file containing search terms
+        
+    Returns:
+        list: List of search terms
+    """
+    search_terms = []
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            for line in file:
+                term = line.strip()
+                if term:  # Skip empty lines
+                    search_terms.append(term)
+        return search_terms
+    except Exception as e:
+        print(f"Error reading file: {str(e)}")
+        return []
+
+def main():
+    print("YouTube Video Length Scraper")
+    print("===========================")
+    
+    # Ask user if they want to use file input or manual input
+    input_choice = input("Do you want to: \n1. Enter a single search term\n2. Read multiple search terms from a file\nEnter choice (1 or 2): ")
+    
+    search_terms = []
+    
+    if input_choice == "2":
+        # Get file path from user
+        file_path = input("Enter the path to the file containing search terms (one per line): ")
+        search_terms = read_search_terms_from_file(file_path)
+        
+        if not search_terms:
+            print("No valid search terms found in the file or file could not be read.")
+            return
+        
+        print(f"Found {len(search_terms)} search terms in the file.")
+    else:
+        # Get a single search term
+        search_query = input("Enter the search term to find in YouTube video titles: ")
+        if search_query:
+            search_terms.append(search_query)
+        else:
+            print("No search term provided.")
+            return
+    
+    # Configure max results
     while True:
         try:
-            max_results_input = input("Enter maximum number of results to retrieve (default: 10, max recommended: 20): ")
-            max_results = 10 if max_results_input == "" else int(max_results_input)
+            max_results_input = input("Enter maximum number of results per search term (default: 5, max recommended: 10): ")
+            max_results = 5 if max_results_input == "" else int(max_results_input)
             
             if max_results <= 0:
-                print("Number of results must be positive. Using default of 10.")
-                max_results = 10
-            elif max_results > 20:
-                confirmation = input(f"WARNING: Requesting {max_results} results may increase the risk of being temporarily blocked by YouTube. Continue? (y/n): ").lower()
+                print("Number of results must be positive. Using default of 5.")
+                max_results = 5
+            elif max_results > 10:
+                confirmation = input(f"WARNING: Requesting {max_results} results per term may increase the risk of being temporarily blocked by YouTube. Continue? (y/n): ").lower()
                 if confirmation != 'y':
-                    print("Using safer limit of 20 results.")
-                    max_results = 20
+                    print("Using safer limit of 10 results per term.")
+                    max_results = 10
             break
         except ValueError:
-            print("Please enter a valid number. Using default of 10.")
-            max_results = 10
+            print("Please enter a valid number. Using default of 5.")
+            max_results = 5
             break
     
-    # Set a safety limit that's 2x the user's requested max but capped at 30
-    safety_limit = min(max_results * 2, 30)
+    # Warn about potential time required
+    total_searches = len(search_terms)
+    estimated_time = total_searches * max_results * 2 * 2  # rough estimate: terms * results * 2 pages per result * 2 seconds delay
     
-    print(f"Beginning YouTube search (limited to {max_results} videos maximum)...")
-    results = scrape_youtube_video_lengths(search_query, max_results, safety_limit)
+    print(f"\nWARNING: Processing {total_searches} search terms with up to {max_results} results each.")
+    print(f"This could take approximately {estimated_time} seconds (about {estimated_time/60:.1f} minutes).")
+    proceed = input("Do you want to continue? (y/n): ").lower()
     
-    if results:
-        print(f"\nFound {len(results)} relevant videos:")
-        for i, video in enumerate(results, 1):
-            trimmed_title = trim_title(video['title'])
-            print(f"{i}. [{video['relevance']:.0f}%] {trimmed_title} - {video['length']}")
+    if proceed != 'y':
+        print("Operation cancelled.")
+        return
+    
+    # Set a safety limit
+    safety_limit = min(max_results * 2, 15)
+    
+    # Process all search terms
+    all_results = []
+    
+    for i, term in enumerate(search_terms, 1):
+        print(f"\n[{i}/{total_searches}] Processing search term: '{term}'")
+        results = scrape_youtube_video_lengths(term, max_results, safety_limit)
+        all_results.extend(results)
         
-        save_csv = input("\nDo you want to save results to CSV? (y/n): ").lower()
+        # Short pause between search terms
+        if i < total_searches:
+            pause_time = 5
+            print(f"Pausing for {pause_time} seconds before the next search term...")
+            time.sleep(pause_time)
+    
+    # Show summary of results
+    if all_results:
+        print(f"\nFound a total of {len(all_results)} videos across {total_searches} search terms.")
+        
+        # Group results by search term for display
+        results_by_term = {}
+        for result in all_results:
+            term = result['search_term']
+            if term not in results_by_term:
+                results_by_term[term] = []
+            results_by_term[term].append(result)
+        
+        # Display results
+        for term, term_results in results_by_term.items():
+            print(f"\nResults for '{term}' ({len(term_results)} videos):")
+            for i, video in enumerate(term_results, 1):
+                trimmed_title = trim_title(video['title'])
+                print(f"  {i}. [{video['relevance']:.0f}%] {trimmed_title} - {video['length']}")
+        
+        # Save to CSV
+        save_csv = input("\nDo you want to save all results to CSV? (y/n): ").lower()
         if save_csv == 'y':
-            filename = input("Enter filename (default: youtube_video_lengths.csv): ") or "youtube_video_lengths.csv"
-            save_to_csv(results, filename)
+            timestamp = time.strftime("%Y%m%d_%H%M%S")
+            default_filename = f"youtube_results_{timestamp}.csv"
+            filename = input(f"Enter filename (default: {default_filename}): ") or default_filename
+            save_to_csv(all_results, filename)
     else:
         print("No results found or there was an error with the scraping.")
 
