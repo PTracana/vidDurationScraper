@@ -6,7 +6,7 @@ import csv
 import os
 from urllib.parse import quote_plus
 
-def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
+def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20, min_relevance=75, min_duration_seconds=180):
     """
     Scrapes YouTube video lengths for videos containing a specific search query in their title.
     
@@ -14,6 +14,8 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
         search_query (str): The search term to look for in YouTube video titles
         max_results (int): Maximum number of results to return
         safety_limit (int): Hard upper limit for results to prevent IP blocking
+        min_relevance (int): Minimum relevance percentage (0-100) to include in results
+        min_duration_seconds (int): Minimum video duration in seconds
         
     Returns:
         list: A list of dictionaries containing video title, length, url and relevance score
@@ -51,7 +53,7 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
     video_ids = re.findall(r'watch\?v=([a-zA-Z0-9_-]{11})', response.text)
     unique_ids = list(dict.fromkeys(video_ids))  # Remove duplicates
     
-    print(f"Found {len(unique_ids)} potential videos. Filtering for relevance...")
+    print(f"Found {len(unique_ids)} potential videos. Filtering for relevance and duration...")
     
     # First pass: collect all candidate videos with their titles
     processed_count = 0
@@ -80,20 +82,34 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
                 # Score is percentage of search terms that appear in title
                 relevance_score = (matching_terms / len(search_terms)) * 100 if search_terms else 0
                 
-                # Only consider videos with at least one matching term
-                if matching_terms > 0:
-                    # Extract duration
-                    duration_tag = video_soup.find("meta", itemprop="duration")
-                    duration = duration_tag["content"] if duration_tag else "Unknown"
+                # Extract duration for filtering
+                duration_tag = video_soup.find("meta", itemprop="duration")
+                duration = duration_tag["content"] if duration_tag else "PT0S"
+                
+                # Convert ISO 8601 duration to seconds for comparison
+                duration_seconds = 0
+                if duration.startswith("PT"):
+                    hours = re.search(r'(\d+)H', duration)
+                    minutes = re.search(r'(\d+)M', duration)
+                    seconds = re.search(r'(\d+)S', duration)
                     
-                    # Format ISO 8601 duration (PT1H2M3S) to a readable format
+                    if hours:
+                        duration_seconds += int(hours.group(1)) * 3600
+                    if minutes:
+                        duration_seconds += int(minutes.group(1)) * 60
+                    if seconds:
+                        duration_seconds += int(seconds.group(1))
+                
+                # Check if the video meets both relevance and duration criteria
+                if relevance_score >= min_relevance and duration_seconds >= min_duration_seconds:
+                    # Format ISO 8601 duration (PT1H2M3S) to a readable format for display
+                    formatted_duration = ""
                     if duration.startswith("PT"):
                         duration = duration[2:]  # Remove PT prefix
                         hours = re.search(r'(\d+)H', duration)
                         minutes = re.search(r'(\d+)M', duration)
                         seconds = re.search(r'(\d+)S', duration)
                         
-                        formatted_duration = ""
                         if hours:
                             formatted_duration += f"{hours.group(1)}:"
                         if minutes:
@@ -113,10 +129,22 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
                     candidate_videos.append({
                         "title": title,
                         "length": duration,
+                        "duration_seconds": duration_seconds,
                         "url": video_url,
                         "relevance": relevance_score,
                         "search_term": search_query  # Store the search term used
                     })
+                else:
+                    # Provide detailed reason for skipping
+                    skip_reason = []
+                    if relevance_score < min_relevance:
+                        skip_reason.append(f"relevance {relevance_score:.0f}% is below {min_relevance}% threshold")
+                    if duration_seconds < min_duration_seconds:
+                        min_duration_str = format_seconds_to_time(min_duration_seconds)
+                        video_duration_str = format_seconds_to_time(duration_seconds)
+                        skip_reason.append(f"duration {video_duration_str} is less than minimum {min_duration_str}")
+                    
+                    print(f"  Skipping video: {title} - {', '.join(skip_reason)}")
                 
                 # Throttle requests to avoid being blocked
                 time.sleep(2)
@@ -128,6 +156,25 @@ def scrape_youtube_video_lengths(search_query, max_results=10, safety_limit=20):
     results = sorted(candidate_videos, key=lambda x: x['relevance'], reverse=True)[:max_results]
     
     return results
+
+def format_seconds_to_time(seconds):
+    """
+    Converts seconds to a human-readable time format (MM:SS or HH:MM:SS)
+    
+    Args:
+        seconds (int): Duration in seconds
+        
+    Returns:
+        str: Formatted time string
+    """
+    hours = seconds // 3600
+    minutes = (seconds % 3600) // 60
+    secs = seconds % 60
+    
+    if hours > 0:
+        return f"{hours}:{minutes:02d}:{secs:02d}"
+    else:
+        return f"{minutes}:{secs:02d}"
 
 def trim_title(title, max_length=70):
     """
@@ -153,7 +200,7 @@ def save_to_csv(results, filename="youtube_video_lengths.csv"):
         filename (str): Name of the CSV file to save results to
     """
     with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ['search_term', 'title', 'length', 'url', 'relevance']
+        fieldnames = ['search_term', 'title', 'length', 'duration_seconds', 'url', 'relevance']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         
         writer.writeheader()
@@ -232,6 +279,45 @@ def main():
             max_results = 5
             break
     
+    # Configure minimum relevance threshold
+    while True:
+        try:
+            min_relevance_input = input("Enter minimum relevance percentage (0-100, default: 75): ")
+            min_relevance = 75 if min_relevance_input == "" else int(min_relevance_input)
+            
+            if min_relevance < 0 or min_relevance > 100:
+                print("Relevance must be between 0 and 100. Using default of 75%.")
+                min_relevance = 75
+            break
+        except ValueError:
+            print("Please enter a valid number. Using default of 75%.")
+            min_relevance = 75
+            break
+    
+    # Configure minimum video duration (default 3 minutes = 180 seconds)
+    min_duration_seconds = 180  # Default 3 minutes
+    while True:
+        try:
+            min_duration_input = input("Enter minimum video duration in minutes (default: 3): ")
+            if min_duration_input == "":
+                break
+                
+            min_duration_minutes = float(min_duration_input)
+            if min_duration_minutes < 0:
+                print("Duration must be positive. Using default of 3 minutes.")
+            else:
+                min_duration_seconds = int(min_duration_minutes * 60)
+                break
+        except ValueError:
+            print("Please enter a valid number. Using default of 3 minutes.")
+            break
+    
+    # Display filter settings
+    min_duration_str = format_seconds_to_time(min_duration_seconds)
+    print(f"\nFilter settings:")
+    print(f"- Minimum relevance: {min_relevance}%")
+    print(f"- Minimum duration: {min_duration_str}")
+    
     # Warn about potential time required
     total_searches = len(search_terms)
     estimated_time = total_searches * max_results * 2 * 2  # rough estimate: terms * results * 2 pages per result * 2 seconds delay
@@ -252,7 +338,7 @@ def main():
     
     for i, term in enumerate(search_terms, 1):
         print(f"\n[{i}/{total_searches}] Processing search term: '{term}'")
-        results = scrape_youtube_video_lengths(term, max_results, safety_limit)
+        results = scrape_youtube_video_lengths(term, max_results, safety_limit, min_relevance, min_duration_seconds)
         all_results.extend(results)
         
         # Short pause between search terms
@@ -264,6 +350,7 @@ def main():
     # Show summary of results
     if all_results:
         print(f"\nFound a total of {len(all_results)} videos across {total_searches} search terms.")
+        print(f"All results have at least {min_relevance}% relevance and are at least {min_duration_str} in length.")
         
         # Group results by search term for display
         results_by_term = {}
@@ -288,7 +375,7 @@ def main():
             filename = input(f"Enter filename (default: {default_filename}): ") or default_filename
             save_to_csv(all_results, filename)
     else:
-        print("No results found or there was an error with the scraping.")
+        print("No results found matching the relevance and duration criteria or there was an error with the scraping.")
 
 if __name__ == "__main__":
     main()

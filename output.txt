@@ -1,47 +1,47 @@
-Albedo quest Princeps Cretaceus Princeps Cretaceus gameplay
-Alhaitham quest Vultur Volans Vultur Volans gameplay
-Amber quest Lepus Lepus gameplay
-Arataki Itto quest Taurus Iracundus Taurus Iracundus gameplay
-Arlecchino quest Ignis Purgatorius Ignis Purgatorius gameplay
-Baizhu quest Lagenaria Lagenaria gameplay
-Chiori quest Cisoria Cisoria gameplay
-Clorinde quest Rapperia Rapperia gameplay
-Cyno quest Lupus Aureus Lupus Aureus gameplay
-Dehya quest Mantichora Mantichora gameplay
-Diluc quest Noctua Noctua gameplay
-Emilie quest Pomum de Ambra Pomum de Ambra gameplay
-Eula quest Aphros Delos Aphros Delos gameplay
-Furina quest Animula Choragi Animula Choragi gameplay
-Ganyu quest Sinae Unicornis Sinae Unicornis gameplay
-Hu Tao quest Papilio Charontis Papilio Charontis gameplay
-Jean quest Leo Minor Leo Minor gameplay
-Kaedehara Kazuha quest Acer Palmatum Acer Palmatum gameplay
-Kaeya quest Pavo Ocellus Pavo Ocellus gameplay
-Kamisato Ayaka quest Grus Nivis Grus Nivis gameplay
-Kamisato Ayato quest Cypressus Custos Cypressus Custos gameplay
-Klee quest Trifolium Trifolium gameplay
-Lisa quest Tempus Fugit Tempus Fugit gameplay
-Lyney quest Felis Fuscus Felis Fuscus gameplay
-Mavuika quest Sol Invictus Sol Invictus gameplay
-Mona quest Astrolabos Astrolabos gameplay
-Nahida quest Sapientia Oromasdis Sapientia Oromasdis gameplay
-Navia quest Rosa Multiflora Rosa Multiflora gameplay
-Neuvillette quest Diluvies Diluvies gameplay
-Nilou quest Lotos Somno Lotos Somno gameplay
-Raiden Shogun quest Imperatrix Umbrosa Imperatrix Umbrosa gameplay
-Razor quest Lupus Minor Lupus Minor gameplay
-Sangonomiya Kokomi quest Dracaena Somnolenta Dracaena Somnolenta gameplay
-Sigewinne quest Nereides Nereides gameplay
-Tartaglia quest Monoceros Caeli Monoceros Caeli gameplay
-Tighnari quest Vulpes Zerda Vulpes Zerda gameplay
-Venti quest Carmen Dei Carmen Dei gameplay
-Wriothesley quest Cerberus Cerberus gameplay
-Xiangling quest Trulla Trulla gameplay
-Xianyun quest Grus Serena Grus Serena gameplay
-Xiao quest Alatus Alatus gameplay
-Xingqiu quest Fabulae Textile Fabulae Textile gameplay
-Yae Miko quest Divina Vulpes Divina Vulpes gameplay
-Yelan quest Umbrabilis Orchis Umbrabilis Orchis gameplay
-Yoimiya quest Carassius Auratus Carassius Auratus gameplay
-Yumemizuki Mizuki quest Tapirus Somniator Tapirus Somniator gameplay
-Zhongli quest Historia Antiqua Historia Antiqua gameplay
+Albedo quest Princeps Cretaceus Princeps Cretaceus Walkthrough
+Alhaitham quest Vultur Volans Vultur Volans Walkthrough
+Amber quest Lepus Lepus Walkthrough
+Arataki Itto quest Taurus Iracundus Taurus Iracundus Walkthrough
+Arlecchino quest Ignis Purgatorius Ignis Purgatorius Walkthrough
+Baizhu quest Lagenaria Lagenaria Walkthrough
+Chiori quest Cisoria Cisoria Walkthrough
+Clorinde quest Rapperia Rapperia Walkthrough
+Cyno quest Lupus Aureus Lupus Aureus Walkthrough
+Dehya quest Mantichora Mantichora Walkthrough
+Diluc quest Noctua Noctua Walkthrough
+Emilie quest Pomum de Ambra Pomum de Ambra Walkthrough
+Eula quest Aphros Delos Aphros Delos Walkthrough
+Furina quest Animula Choragi Animula Choragi Walkthrough
+Ganyu quest Sinae Unicornis Sinae Unicornis Walkthrough
+Hu Tao quest Papilio Charontis Papilio Charontis Walkthrough
+Jean quest Leo Minor Leo Minor Walkthrough
+Kaedehara Kazuha quest Acer Palmatum Acer Palmatum Walkthrough
+Kaeya quest Pavo Ocellus Pavo Ocellus Walkthrough
+Kamisato Ayaka quest Grus Nivis Grus Nivis Walkthrough
+Kamisato Ayato quest Cypressus Custos Cypressus Custos Walkthrough
+Klee quest Trifolium Trifolium Walkthrough
+Lisa quest Tempus Fugit Tempus Fugit Walkthrough
+Lyney quest Felis Fuscus Felis Fuscus Walkthrough
+Mavuika quest Sol Invictus Sol Invictus Walkthrough
+Mona quest Astrolabos Astrolabos Walkthrough
+Nahida quest Sapientia Oromasdis Sapientia Oromasdis Walkthrough
+Navia quest Rosa Multiflora Rosa Multiflora Walkthrough
+Neuvillette quest Diluvies Diluvies Walkthrough
+Nilou quest Lotos Somno Lotos Somno Walkthrough
+Raiden Shogun quest Imperatrix Umbrosa Imperatrix Umbrosa Walkthrough
+Razor quest Lupus Minor Lupus Minor Walkthrough
+Sangonomiya Kokomi quest Dracaena Somnolenta Dracaena Somnolenta Walkthrough
+Sigewinne quest Nereides Nereides Walkthrough
+Tartaglia quest Monoceros Caeli Monoceros Caeli Walkthrough
+Tighnari quest Vulpes Zerda Vulpes Zerda Walkthrough
+Venti quest Carmen Dei Carmen Dei Walkthrough
+Wriothesley quest Cerberus Cerberus Walkthrough
+Xiangling quest Trulla Trulla Walkthrough
+Xianyun quest Grus Serena Grus Serena Walkthrough
+Xiao quest Alatus Alatus Walkthrough
+Xingqiu quest Fabulae Textile Fabulae Textile Walkthrough
+Yae Miko quest Divina Vulpes Divina Vulpes Walkthrough
+Yelan quest Umbrabilis Orchis Umbrabilis Orchis Walkthrough
+Yoimiya quest Carassius Auratus Carassius Auratus Walkthrough
+Yumemizuki Mizuki quest Tapirus Somniator Tapirus Somniator Walkthrough
+Zhongli quest Historia Antiqua Historia Antiqua Walkthrough
