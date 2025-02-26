@@ -19,13 +19,13 @@ average_lengths = data.groupby('search_term')['length_seconds'].mean().reset_ind
 def seconds_to_hhmm(seconds):
     hours = seconds // 3600
     mins = (seconds % 3600) // 60
-    return f"{int(hours)}:{mins:02}"  # Ensure hours are formatted as an integer
+    return f"{int(hours)}:{int(mins):02}"  # Ensure hours and minutes are formatted as integers
 
 # Apply conversion to hh:mm format
 average_lengths['average_length_hh:mm'] = average_lengths['length_seconds'].apply(seconds_to_hhmm)
 
 # Output results to a text file
-output_file = 'final-result.txt'  # Specify the output file name
+output_file = 'results-final.txt'  # Specify the output file name
 with open(output_file, 'w') as file:
     for index, row in average_lengths.iterrows():
         file.write(f"Search Term: {row['search_term']}, Average Length: {row['average_length_hh:mm']}\n")
