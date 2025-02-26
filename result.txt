@@ -1,1 +1,0 @@
-search_term average_length_seconds
