@@ -1,0 +1,57 @@
+--- Table after heading: List of Story Quests[] ---
+Name | Chapter | Acts and Requirements | Version
+------------------------------------------------
+Albedo | Princeps Cretaceus Princeps Cretaceus | Act I: Traveler Observation Report 40,  Prologue: Act II - For a Tomorrow Without Tears | 1.2
+Alhaitham | Vultur Volans Vultur Volans | Act I: The Illusions of the Mob 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises | 3.4
+Amber | Lepus Lepus | Act I: Wind, Courage, and Wings 8,  Prologue: Act I - The Outlander Who Caught the Wind | 1.0
+Arataki Itto | Taurus Iracundus Taurus Iracundus | Act I: Rise Up, Golden Soul 40,  Chapter II: Act III - Omnipresence Over Mortals,  Dracaena Somnolenta Chapter: Act I - Warriors' Dreams Like Spring Grass Renewing | 2.3
+Arlecchino | Ignis Purgatorius Ignis Purgatorius | Act I: When the Hearth-Flame Goes Out 40,  Chapter IV: Act V - Masquerade of the Guilty | 4.6
+Baizhu | Lagenaria Lagenaria | Act I: The Heart of Healing 40,  Chapter I: Act III - A New Star Approaches,  Papilio Charontis Chapter: Act I - Yet the Butterfly Flutters Away,  Alatus Chapter: Act I - Butterfly's Dream | 3.6
+Chiori | Cisoria Cisoria | Act I: When They Talk About Tonight 40,  Chapter IV: Act V - Masquerade of the Guilty | 4.5
+Clorinde | Rapperia Rapperia | Act I: Silent Night 40,  Chapter IV: Act V - Masquerade of the Guilty,  Animula Choragi Chapter: Act I - "The Little Oceanid" | 4.7
+Cyno | Lupus Aureus Lupus Aureus | Act I: Sands of Solitude 40,  Chapter III: Act IV - King Deshret and the Three Magi | 3.1
+Act II: Oathkeeper 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises | 4.6
+Dehya | Mantichora Mantichora | Act I: Lionsblood 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises | 3.5
+Diluc | Noctua Noctua | Act I: Darknight Hero's Alibi Prologue: Act III - Song of the Dragon and Freedom | 1.0
+Emilie | Pomum de Ambra Pomum de Ambra | Act I: Floral Debt, Blood Due 40,  Chapter IV: Act V - Masquerade of the Guilty | 4.8
+Eula | Aphros Delos Aphros Delos | Act I: The Spindrift Shall Never Return to the Sea 40,  Prologue: Act III - Song of the Dragon and Freedom | 1.5
+Furina | Animula Choragi Animula Choragi | Act I: "The Little Oceanid" 40, Chapter IV: Act V - Masquerade of the Guilty | 4.2
+Ganyu | Sinae Unicornis Sinae Unicornis | Act I: Sea of Clouds, Sea of People 40,  Chapter I: Act III - A New Star Approaches | 1.2
+Hu Tao | Papilio Charontis Papilio Charontis | Act I: Yet the Butterfly Flutters Away 40,  Chapter I: Act II - Farewell, Archaic Lord | 1.3
+Jean | Leo Minor Leo Minor | Act I: Master's Day Off 34,  Trifolium Chapter: Act I - True Treasure | 1.0
+Kaedehara Kazuha | Acer Palmatum Acer Palmatum | Act I: A Strange and Friendless Road 40,  Chapter II: Act III - Omnipresence Over Mortals,  Imperatrix Umbrosa Chapter: Act I - Reflections of Mortality | 2.8
+Kaeya | Pavo Ocellus Pavo Ocellus | Act I: Secret Pirate Treasure 5,  Prologue: Act I - The Outlander Who Caught the Wind | 1.0
+Kamisato Ayaka | Grus Nivis Grus Nivis | Act I: The Whispers of the Crane and the White Rabbit 30,  Chapter II: Act I - The Immovable God and the Eternal Euthymia | 2.0
+Kamisato Ayato | Cypressus Custos Cypressus Custos | Act I: The Firmiana Leaf Falls 40,  Chapter II: Act III - Omnipresence Over Mortals,  Imperatrix Umbrosa Chapter: Act I - Reflections of Mortality,  Chisato's Letter | 2.6
+Klee | Trifolium Trifolium | Act I: True Treasure 32,  Noctua Chapter: Act I - Darknight Hero's Alibi,  Lupus Minor Chapter: Act I - The Meaning of Lupical | 1.0
+Lisa | Tempus Fugit Tempus Fugit | Act I: Troublesome Work 15,  Prologue: Act I - The Outlander Who Caught the Wind | 1.0
+Lyney | Felis Fuscus Felis Fuscus | Act I: The Forgotten Thief 40,  Chapter IV: Act II - As Light Rain Falls Without Reason | 4.0
+Mavuika | Sol Invictus Sol Invictus | Act I: As the Blazing Sun 40,  Chapter V: Act V - Incandescent Ode of Resurrection | 5.3
+Mona | Astrolabos Astrolabos | Act I: Beyond This World's Stars 38,  Trifolium Chapter: Act I - True Treasure | 1.0
+Nahida | Sapientia Oromasdis Sapientia Oromasdis | Act I: Lingering Warmth 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises | 3.2
+Act II: Homecoming 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises | 3.6
+Navia | Rosa Multiflora Rosa Multiflora | Act I: Braving the Tides Together 40,  Chapter IV: Act V - Masquerade of the Guilty | 4.3
+Neuvillette | Diluvies Diluvies | Act I: The Remains of the Past Day 40,  Chapter IV: Act IV - Cataclysm's Quickening | 4.1
+Nilou | Lotos Somno Lotos Somno | Act I: To the Wise 40,  Chapter III: Act II - The Morn a Thousand Roses Brings: Denouement | 3.1
+Raiden Shogun | Imperatrix Umbrosa Imperatrix Umbrosa | Act I: Reflections of Mortality 40,  Chapter II: Act III - Omnipresence Over Mortals | 2.1
+Act II: Transient Dreams 40,  Imperatrix Umbrosa Chapter: Act I - Reflections of Mortality,  Chapter II: Act III - Omnipresence Over Mortals | 2.5
+Razor | Lupus Minor Lupus Minor | Act I: The Meaning of Lupical 21,  Prologue: Act III - Song of the Dragon and Freedom,  Lepus Chapter: Act I - Wind, Courage, and Wings | 1.0
+Sangonomiya Kokomi | Dracaena Somnolenta Dracaena Somnolenta | Act I: Warriors' Dreams Like Spring Grass Renewing 40,  Chapter II: Act III - Omnipresence Over Mortals,  Imperatrix Umbrosa Chapter: Act I - Reflections of Mortality | 2.1
+Sigewinne | Nereides Nereides | Act I: The Warmth of Lies 40,  Chapter IV: Act V - Masquerade of the Guilty,  Diluvies Chapter: Act I - The Remains of the Past Day | 4.7
+Tartaglia | Monoceros Caeli Monoceros Caeli | Act I: Mighty Cyclops' Adventure! 40,  Chapter I: Act III - A New Star Approaches,  Fabulae Textile Chapter: Act I - Bookworm Swordsman | 1.1
+Tighnari | Vulpes Zerda Vulpes Zerda | Act I: The Unanswerable Problems 40,  Chapter III: Act II - The Morn a Thousand Roses Brings | 3.0
+Venti | Carmen Dei Carmen Dei | Act I: Should You Be Trapped in a Windless Land 36,  Trifolium Chapter: Act I - True Treasure | 1.0
+Wriothesley | Cerberus Cerberus | Act I: Reborn in the Land of Grievances 40,  Chapter IV: Act IV - Cataclysm's Quickening | 4.1
+Xiangling | Trulla Trulla | Act I: Mondstadt Gastronomy Trip 13,  Prologue: Act I - The Outlander Who Caught the Wind | 1.0
+Xianyun | Grus Serena Grus Serena | Act I: A Thousand Moonlit Miles 40,  Interlude Chapter: Act I - The Crane Returns on the Wind | 4.4
+Xiao | Alatus Alatus | Act I: Butterfly's Dream 40,  Chapter I: Act I - Of the Land Amidst Monoliths | 1.3
+Xingqiu | Fabulae Textile Fabulae Textile | Act I: Bookworm Swordsman 26,  Tempus Fugit Chapter: Act I - Troublesome Work | 1.0
+Yae Miko | Divina Vulpes Divina Vulpes | Act I: The Great Narukami Offering 40,  Chapter II: Act III - Omnipresence Over Mortals,  Imperatrix Umbrosa Chapter: Act II - Transient Dreams | 2.5
+Yelan | Umbrabilis Orchis Umbrabilis Orchis | Act I: Calculated Gambit 40,  Interlude Chapter: Act II - Perilous Trail,  Sinae Unicornis: Act I - Sea of Clouds, Sea of People | 2.7
+Yoimiya | Carassius Auratus Carassius Auratus | Act I: Dreamlike Timelessness 30,  Chapter II: Act I - The Immovable God and the Eternal Euthymia | 2.0
+Act II: Star-Pickers' Passage 40,  Chapter III: Act V - Akasha Pulses, the Kalpa Flame Rises,  Imperatrix Umbrosa Chapter: Act II - Transient Dreams,  The World of Aranara from Aranyaka: Part II - Dream Nursery | 3.7
+Yumemizuki Mizuki | Tapirus Somniator Tapirus Somniator | Act I: Dream Eater's Melancholia 40,  Chapter II: Act III - Omnipresence Over Mortals,  Imperatrix Umbrosa Chapter: Act II - Transient Dreams | 5.4
+Zhongli | Historia Antiqua Historia Antiqua | Act I: Sal Flore 40,  Chapter I: Act III - A New Star Approaches | 1.1
+Act II: No Mere Stone 40,  Historia Antiqua Chapter: Act I - Sal Flore,  Chapter I: Act IV - We Will Be Reunited | 1.5
+
+
